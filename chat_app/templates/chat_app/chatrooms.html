@@ -1,0 +1,21 @@
+{% extends "chat_app/base.html" %}
+
+{% block content %}
+
+  <h2> Chatrooms </h2>
+
+{% for chatroom in chatrooms %}
+  <h3> 
+    <a href = "{% url 'chat_app:chatroom' chatroom.id %}">{{ chatroom }}</a>
+  </h3> 
+{% empty %}
+  <h3> 
+    No chatrooms have been added yet. 
+  </h3>
+{% endfor %}
+<h3>
+  <a href = "{% url 'chat_app:new_chatroom' %}"> Create a new chatroom! <a>
+</h3>
+
+
+{% endblock content %}

@@ -1,0 +1,11 @@
+{% extends "chat_app/base.html" %}
+
+{% block content %}
+<p> Add a new Chatroom: </p>
+
+<form action = "{% url 'chat_app:new_chatroom' %}" method = 'post'>
+	{% csrf_token %}
+	{{ form.as_p }}
+	<button name = "submit" > Add Chatroom </button>
+
+{% endblock content %}

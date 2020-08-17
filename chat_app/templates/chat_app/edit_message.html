@@ -1,0 +1,15 @@
+{% extends "chat_app/base.html" %}
+
+{% block content %}
+
+	<h4><a href = "{% url 'chat_app:chatroom' chatroom.id %}"> {{chatroom}}</a></h4>
+
+	<p> Edit message: </p>
+
+	<form action = "{% url 'chat_app:edit_message' message.id %}" method = 'post'>
+		{% csrf_token %}
+		{{ form.as_p}}
+		<button name = "submit">Save changes </button>
+	</form>
+
+{% endblock content %}
